@@ -1,3 +1,155 @@
+/*
+L33THEME
+Created by @KyleCurtis
+https://github.com/kylecurtis/l33theme
+*/
+
+/* =============================================================================
+Theme Palette (Dark-Only)
+============================================================================= */
+:root {
+	/* Darkened Base Palette */
+	--bg-primary: #050c08;
+	--bg-secondary: #0a140e;
+	--bg-alt: #0d1a13;
+	--border: #132a1e;
+
+	/* Color Definitions */
+	--terminal-green: #00ff00; /* Green Mode Primary */
+	--soft-green: #99e5b5; /* Green Mode Body Text */
+	--muted-green: #53986c; /* Green Mode Muted Text */
+	--faint-green: #1c3d2b; /* Green Mode Accents */
+
+	--terminal-amber: #ff9400; /* Amber Mode Primary */
+	--soft-amber: #ffcf85; /* Amber Mode Body Text */
+	--muted-amber: #aa752c; /* Amber Mode Muted Text */
+	--faint-amber: #4d2b00; /* Amber Mode Accents */
+
+	/* Default Active Phosphor (Green) */
+	--phosphor-color: var(--terminal-green);
+	--phosphor-soft: var(--soft-green);
+	--phosphor-muted: var(--muted-green);
+	--phosphor-faint: var(--faint-green);
+	--phosphor-rgb: 0, 255, 0;
+
+	/* Alert Accents */
+	--alert-amber: #ffd303;
+	--alert-red: #ff3344;
+}
+
+/* =============================================================================
+STYLE SETTINGS CLASS TOGGLE: AMBER PHOSPHOR MODE
+============================================================================= */
+body.crt-color-amber {
+	--phosphor-color: var(--terminal-amber);
+	--phosphor-soft: var(--soft-amber);
+	--phosphor-muted: var(--muted-amber);
+	--phosphor-faint: var(--faint-amber);
+	--phosphor-rgb: 255, 148, 0;
+
+	--bg-primary: #0c0803;
+	--bg-secondary: #140e0a;
+	--bg-alt: #1a130d;
+	--border: #2a1e13;
+}
+
+/* =============================================================================
+DARK & LIGHT MODE OVERRIDE (Forces Dark in Light Mode)
+============================================================================= */
+.theme-dark,
+.theme-light {
+	/* Darkened Slate Backgrounds */
+	--background-primary: var(--bg-primary);
+	--background-primary-alt: var(--bg-primary);
+	--background-secondary: var(--bg-secondary);
+	--background-secondary-alt: var(--bg-alt);
+	--background-modifier-border: var(--border);
+	--background-modifier-form-field: var(--bg-secondary);
+	--background-modifier-hover: rgba(var(--phosphor-rgb), 0.08);
+
+	/* High-Contrast Hacker Text */
+	--text-normal: var(--phosphor-soft);
+	--text-muted: var(--phosphor-muted);
+	--text-faint: var(--phosphor-faint);
+	--text-selection: rgba(var(--phosphor-rgb), 0.25);
+
+	--accent: var(--phosphor-color);
+	--text-accent: var(--phosphor-color);
+	--text-accent-hover: #ffffff;
+
+	/* Headings & Text Formatting */
+	--h1-color: var(--phosphor-color);
+	--h2-color: var(--phosphor-color);
+	--h3-color: var(--phosphor-color);
+	--h4-color: var(--phosphor-color);
+	--h5-color: var(--phosphor-color);
+	--h6-color: var(--phosphor-color);
+
+	--bold-color: var(--phosphor-color);
+	--italic-color: var(--phosphor-soft);
+
+	/* Links & Code Blocks */
+	--link-color: var(--phosphor-color);
+	--link-color-hover: #ffffff;
+	--code-normal: var(--phosphor-color);
+	--code-background: var(--bg-secondary);
+
+	/* Sidebars & Ribbon UI */
+	--titlebar-background: var(--bg-primary);
+	--divider-color: var(--border);
+}
+
+/* =============================================================================
+TERMINAL CALLOUTS
+============================================================================= */
+.callout {
+	background-color: var(--bg-secondary) !important;
+	border: 1px solid var(--border) !important;
+	border-left: 4px solid var(--phosphor-color) !important;
+	border-radius: 0px;
+}
+
+.callout-title {
+	color: var(--phosphor-color) !important;
+	font-family: monospace;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.callout[data-callout="warning"] {
+	border-left-color: var(--alert-amber) !important;
+	background-color: rgba(255, 211, 3, 0.03) !important;
+}
+.callout[data-callout="warning"] .callout-title {
+	color: var(--alert-amber) !important;
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+	border-left-color: var(--alert-red) !important;
+	background-color: rgba(255, 51, 68, 0.03) !important;
+}
+.callout[data-callout="danger"] .callout-title,
+.callout[data-callout="error"] .callout-title {
+	color: var(--alert-red) !important;
+}
+
+/* =============================================================================
+UI LISTS & NAV DECORATIONS
+============================================================================= */
+.markdown-rendered ul > li::marker,
+.cm-formatting-list-ul {
+	color: var(--phosphor-color) !important;
+}
+
+.nav-file-title.is-active {
+	color: var(--phosphor-color);
+	background-color: var(--bg-alt);
+}
+
+/* =============================================================================
+RETRO ZERO-RADIUS UI OVERRIDES
+============================================================================= */
 body {
 	--radius-s: 0px;
 	--radius-m: 0px;
@@ -10,7 +162,8 @@ body {
 	--slider-thumb-radius: 0px;
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
 	display: none;
 }
 
@@ -31,4 +184,220 @@ svg * {
 
 .menu-separator {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+}
+
+/* @settings
+name: CRT Visual Effects
+id: crt-visual-effects
+settings:
+    -
+        id: crt-color-scheme
+        title: Phosphor Display Color
+        description: Choose your CRT phosphor screen color variant
+        type: class-select
+        default: crt-color-green
+        options:
+            -
+                label: Green Phosphor (Default)
+                value: crt-color-green
+            -
+                label: Amber Phosphor
+                value: crt-color-amber
+    -
+        id: crt-scanlines-toggle
+        title: Enable High-Contrast CRT Scanlines
+        description: Adds distinct dark horizontal scanline bars across the display
+        type: class-toggle
+        default: true
+    -
+        id: crt-grid-toggle
+        title: Enable Phosphor Dot-Matrix Grid (Shadow Mask)
+        description: Adds vertical subpixel dot/stripe matrix grid like a real CRT tube faceplate
+        type: class-toggle
+        default: true
+    -
+        id: crt-beam-toggle
+        title: Enable Soft Rolling Electron Beam
+        description: Adds a soft ambient sweep line that passes behind the scanline bars
+        type: class-toggle
+        default: true
+    -
+        id: crt-glow-toggle
+        title: Enable Phosphor Glow (Headers & Highlights Only)
+        description: Adds green ambient glow to headers and UI while keeping small body text crisp
+        type: class-toggle
+        default: true
+    -
+        id: crt-tags-toggle
+        title: Enable Retro Console Badge Tags
+        description: Styles tags with hollow green borders and subtle glow
+        type: class-toggle
+        default: true
+*/
+
+/* =============================================================================
+HORIZONTAL SCANLINES & VERTICAL PHOSPHOR MATRIX
+============================================================================= */
+/* Layer A: Horizontal Scanlines */
+body.crt-scanlines-toggle::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.45) 50%);
+	background-size: 100% 4px;
+	z-index: 1000;
+	pointer-events: none;
+	mix-blend-mode: multiply;
+}
+
+/* Layer B: Vertical Phosphor Dot-Matrix */
+body.crt-grid-toggle .app-container::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: radial-gradient(
+		circle at center,
+		rgba(255, 255, 255, 0) 60%,
+		rgba(0, 0, 0, 0.5) 100%
+	);
+	background-size: 3px 3px;
+	z-index: 1001;
+	pointer-events: none;
+	mix-blend-mode: multiply;
+	opacity: 0.7;
+}
+
+/* =============================================================================
+SOFT ROLLING REFRESH BEAM
+============================================================================= */
+@keyframes crt-scanline-roll {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(100vh);
+	}
+}
+
+body.crt-beam-toggle::after {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+	background: linear-gradient(
+		to bottom,
+		rgba(var(--phosphor-rgb), 0) 0%,
+		rgba(var(--phosphor-rgb), 0.03) 50%,
+		rgba(var(--phosphor-rgb), 0) 70%
+	);
+	z-index: 999;
+	pointer-events: none;
+	mix-blend-mode: screen;
+	animation: crt-scanline-roll 14s linear infinite;
+}
+
+/* =============================================================================
+TARGETED PHOSPHOR GLOW (Prevents Small Text Blur)
+============================================================================= */
+body.crt-glow-toggle {
+	/* Headers keep the full phosphor CRT bloom */
+	.cm-header,
+	.markdown-rendered h1,
+	.markdown-rendered h2,
+	.markdown-rendered h3,
+	.markdown-rendered h4,
+	.markdown-rendered h5,
+	.markdown-rendered h6 {
+		color: var(--phosphor-color) !important;
+		text-shadow:
+			0 0 4px rgba(var(--phosphor-rgb), 0.9),
+			0 0 12px rgba(var(--phosphor-rgb), 0.5),
+			0 0 22px rgba(var(--phosphor-rgb), 0.2);
+	}
+
+	/* Bold Text maintains crisp localized glow */
+	.cm-strong,
+	strong {
+		color: var(--phosphor-color) !important;
+		text-shadow: 0 0 5px rgba(var(--phosphor-rgb), 0.6);
+	}
+
+	/* Links */
+	.internal-link,
+	.external-link {
+		text-shadow: 0 0 4px rgba(var(--phosphor-rgb), 0.5);
+	}
+
+	/* Body Text Readability */
+	.cm-line:not(.HyperMD-header),
+	.markdown-rendered p,
+	.markdown-rendered li,
+	.nav-file-title-content {
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
+		letter-spacing: 0.3px;
+	}
+}
+
+/* =============================================================================
+RETRO BADGE TAGS
+============================================================================= */
+body.crt-tags-toggle .tag {
+	color: var(--accent) !important;
+	background-color: transparent !important;
+	border: 1px solid var(--accent) !important;
+	box-shadow: 0 0 6px rgba(var(--phosphor-rgb), 0.3);
+	border-radius: 0px;
+}
+
+/* =============================================================================
+INLINE CODE & CODE BLOCK STYLING
+============================================================================= */
+/* Inline Code */
+:not(pre) > code,
+.cm-inline-code {
+	color: var(--phosphor-color) !important;
+	background-color: rgba(var(--phosphor-rgb), 0.06) !important;
+	border: 1px solid var(--border) !important;
+	border-radius: 0px !important;
+	padding: 0.15em 0.4em !important;
+}
+
+/* Multi-line Code Block Container (Reading & Live Preview Editor) */
+.markdown-rendered pre,
+.cm-embed-block.cm-codeblock {
+	background-color: var(--bg-secondary) !important;
+	border: 1px solid var(--border) !important;
+	border-left: 3px solid var(--phosphor-color) !important;
+	border-radius: 0px !important;
+	padding: 0.8em 1em !important;
+	margin: 1em 0 !important;
+}
+
+/* Force ALL syntax highlighting inside code blocks to take phosphor color */
+.markdown-rendered pre code,
+.markdown-rendered pre code *,
+.cm-embed-block.cm-codeblock *,
+.HyperMD-codeblock span {
+	color: var(--phosphor-color) !important;
+}
+
+/* Glow Effect for Code Text when CRT Glow is Active */
+body.crt-glow-toggle {
+	:not(pre) > code,
+	.cm-inline-code,
+	.markdown-rendered pre code,
+	.cm-embed-block.cm-codeblock * {
+		text-shadow: 0 0 4px rgba(var(--phosphor-rgb), 0.6);
+	}
 }
