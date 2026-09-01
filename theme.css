@@ -8,14 +8,14 @@ https://github.com/kylecurtis/l33theme
 Theme Palette (Dark-Only)
 ============================================================================= */
 :root {
-	/* Darkened Base Palette */
+	/* Darkened Base Palette (Not pure black, deep console slate) */
 	--bg-primary: #050c08;
 	--bg-secondary: #0a140e;
 	--bg-alt: #0d1a13;
 	--border: #132a1e;
 
 	/* Color Definitions */
-	--terminal-green: #00ff00; /* Green Mode Primary */
+	--terminal-green: #0f0; /* Green Mode Primary */
 	--soft-green: #99e5b5; /* Green Mode Body Text */
 	--muted-green: #53986c; /* Green Mode Muted Text */
 	--faint-green: #1c3d2b; /* Green Mode Accents */
@@ -34,7 +34,7 @@ Theme Palette (Dark-Only)
 
 	/* Alert Accents */
 	--alert-amber: #ffd303;
-	--alert-red: #ff3344;
+	--alert-red: #f34;
 }
 
 /* =============================================================================
@@ -46,7 +46,6 @@ body.crt-color-amber {
 	--phosphor-muted: var(--muted-amber);
 	--phosphor-faint: var(--faint-amber);
 	--phosphor-rgb: 255, 148, 0;
-
 	--bg-primary: #0c0803;
 	--bg-secondary: #140e0a;
 	--bg-alt: #1a130d;
@@ -65,17 +64,16 @@ DARK & LIGHT MODE OVERRIDE (Forces Dark in Light Mode)
 	--background-secondary-alt: var(--bg-alt);
 	--background-modifier-border: var(--border);
 	--background-modifier-form-field: var(--bg-secondary);
-	--background-modifier-hover: rgba(var(--phosphor-rgb), 0.08);
+	--background-modifier-hover: rgb(var(--phosphor-rgb) / 8%);
 
 	/* High-Contrast Hacker Text */
 	--text-normal: var(--phosphor-soft);
 	--text-muted: var(--phosphor-muted);
 	--text-faint: var(--phosphor-faint);
-	--text-selection: rgba(var(--phosphor-rgb), 0.25);
-
+	--text-selection: rgb(var(--phosphor-rgb) / 25%);
 	--accent: var(--phosphor-color);
 	--text-accent: var(--phosphor-color);
-	--text-accent-hover: #ffffff;
+	--text-accent-hover: #fff;
 
 	/* Headings & Text Formatting */
 	--h1-color: var(--phosphor-color);
@@ -84,13 +82,12 @@ DARK & LIGHT MODE OVERRIDE (Forces Dark in Light Mode)
 	--h4-color: var(--phosphor-color);
 	--h5-color: var(--phosphor-color);
 	--h6-color: var(--phosphor-color);
-
 	--bold-color: var(--phosphor-color);
 	--italic-color: var(--phosphor-soft);
 
 	/* Links & Code Blocks */
 	--link-color: var(--phosphor-color);
-	--link-color-hover: #ffffff;
+	--link-color-hover: #fff;
 	--code-normal: var(--phosphor-color);
 	--code-background: var(--bg-secondary);
 
@@ -106,7 +103,7 @@ TERMINAL CALLOUTS
 	background-color: var(--bg-secondary) !important;
 	border: 1px solid var(--border) !important;
 	border-left: 4px solid var(--phosphor-color) !important;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .callout-title {
@@ -118,8 +115,9 @@ TERMINAL CALLOUTS
 
 .callout[data-callout="warning"] {
 	border-left-color: var(--alert-amber) !important;
-	background-color: rgba(255, 211, 3, 0.03) !important;
+	background-color: rgb(255 211 3 / 3%) !important;
 }
+
 .callout[data-callout="warning"] .callout-title {
 	color: var(--alert-amber) !important;
 }
@@ -127,8 +125,9 @@ TERMINAL CALLOUTS
 .callout[data-callout="danger"],
 .callout[data-callout="error"] {
 	border-left-color: var(--alert-red) !important;
-	background-color: rgba(255, 51, 68, 0.03) !important;
+	background-color: rgb(255 51 68 / 3%) !important;
 }
+
 .callout[data-callout="danger"] .callout-title,
 .callout[data-callout="error"] .callout-title {
 	color: var(--alert-red) !important;
@@ -151,15 +150,15 @@ UI LISTS & NAV DECORATIONS
 RETRO ZERO-RADIUS UI OVERRIDES
 ============================================================================= */
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+	--radius-s: 0;
+	--radius-m: 0;
+	--radius-l: 0;
+	--input-radius: 0;
+	--tab-radius-active: 0;
+	--checkbox-radius: 0;
+	--toggle-radius: 0;
+	--toggle-thumb-radius: 0;
+	--slider-thumb-radius: 0;
 }
 
 .workspace-tab-header.is-active::before,
@@ -243,11 +242,8 @@ body.crt-scanlines-toggle::before {
 	content: " ";
 	display: block;
 	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.45) 50%);
+	inset: 0;
+	background: linear-gradient(rgb(0 0 0 / 0%) 50%, rgb(0 0 0 / 45%) 50%);
 	background-size: 100% 4px;
 	z-index: 1000;
 	pointer-events: none;
@@ -259,14 +255,11 @@ body.crt-grid-toggle .app-container::before {
 	content: " ";
 	display: block;
 	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	inset: 0;
 	background: radial-gradient(
 		circle at center,
-		rgba(255, 255, 255, 0) 60%,
-		rgba(0, 0, 0, 0.5) 100%
+		rgb(255 255 255 / 0%) 60%,
+		rgb(0 0 0 / 50%) 100%
 	);
 	background-size: 3px 3px;
 	z-index: 1001;
@@ -282,6 +275,7 @@ SOFT ROLLING REFRESH BEAM
 	0% {
 		transform: translateY(-100%);
 	}
+
 	100% {
 		transform: translateY(100vh);
 	}
@@ -297,9 +291,9 @@ body.crt-beam-toggle::after {
 	height: 80px;
 	background: linear-gradient(
 		to bottom,
-		rgba(var(--phosphor-rgb), 0) 0%,
-		rgba(var(--phosphor-rgb), 0.03) 50%,
-		rgba(var(--phosphor-rgb), 0) 70%
+		rgb(var(--phosphor-rgb) / 0%) 0%,
+		rgb(var(--phosphor-rgb) / 3%) 50%,
+		rgb(var(--phosphor-rgb) / 0%) 70%
 	);
 	z-index: 999;
 	pointer-events: none;
@@ -321,22 +315,22 @@ body.crt-glow-toggle {
 	.markdown-rendered h6 {
 		color: var(--phosphor-color) !important;
 		text-shadow:
-			0 0 4px rgba(var(--phosphor-rgb), 0.9),
-			0 0 12px rgba(var(--phosphor-rgb), 0.5),
-			0 0 22px rgba(var(--phosphor-rgb), 0.2);
+			0 0 4px rgb(var(--phosphor-rgb) / 90%),
+			0 0 12px rgb(var(--phosphor-rgb) / 50%),
+			0 0 22px rgb(var(--phosphor-rgb) / 20%);
 	}
 
 	/* Bold Text maintains crisp localized glow */
 	.cm-strong,
 	strong {
 		color: var(--phosphor-color) !important;
-		text-shadow: 0 0 5px rgba(var(--phosphor-rgb), 0.6);
+		text-shadow: 0 0 5px rgb(var(--phosphor-rgb) / 60%);
 	}
 
 	/* Links */
 	.internal-link,
 	.external-link {
-		text-shadow: 0 0 4px rgba(var(--phosphor-rgb), 0.5);
+		text-shadow: 0 0 4px rgb(var(--phosphor-rgb) / 50%);
 	}
 
 	/* Body Text Readability */
@@ -344,7 +338,7 @@ body.crt-glow-toggle {
 	.markdown-rendered p,
 	.markdown-rendered li,
 	.nav-file-title-content {
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
+		text-shadow: 0 1px 2px rgb(0 0 0 / 90%) !important;
 		letter-spacing: 0.3px;
 	}
 }
@@ -356,8 +350,8 @@ body.crt-tags-toggle .tag {
 	color: var(--accent) !important;
 	background-color: transparent !important;
 	border: 1px solid var(--accent) !important;
-	box-shadow: 0 0 6px rgba(var(--phosphor-rgb), 0.3);
-	border-radius: 0px;
+	box-shadow: 0 0 6px rgb(var(--phosphor-rgb) / 30%);
+	border-radius: 0;
 }
 
 /* =============================================================================
@@ -367,9 +361,9 @@ INLINE CODE & CODE BLOCK STYLING
 :not(pre) > code,
 .cm-inline-code {
 	color: var(--phosphor-color) !important;
-	background-color: rgba(var(--phosphor-rgb), 0.06) !important;
+	background-color: rgb(var(--phosphor-rgb) / 6%) !important;
 	border: 1px solid var(--border) !important;
-	border-radius: 0px !important;
+	border-radius: 0 !important;
 	padding: 0.15em 0.4em !important;
 }
 
@@ -379,12 +373,12 @@ INLINE CODE & CODE BLOCK STYLING
 	background-color: var(--bg-secondary) !important;
 	border: 1px solid var(--border) !important;
 	border-left: 3px solid var(--phosphor-color) !important;
-	border-radius: 0px !important;
+	border-radius: 0 !important;
 	padding: 0.8em 1em !important;
 	margin: 1em 0 !important;
 }
 
-/* Force ALL syntax highlighting inside code blocks to take phosphor color */
+/* Force ALL syntax highlighting tokens inside code blocks to take phosphor color */
 .markdown-rendered pre code,
 .markdown-rendered pre code *,
 .cm-embed-block.cm-codeblock *,
@@ -398,6 +392,6 @@ body.crt-glow-toggle {
 	.cm-inline-code,
 	.markdown-rendered pre code,
 	.cm-embed-block.cm-codeblock * {
-		text-shadow: 0 0 4px rgba(var(--phosphor-rgb), 0.6);
+		text-shadow: 0 0 4px rgb(var(--phosphor-rgb) / 60%);
 	}
 }
