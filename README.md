@@ -18,7 +18,7 @@ Inspired by the standard green luminescence
 
 ### P3 Phosphor Theme
 
-Inspired by the high-contrast amber luminescence
+Inspired by the amber luminescence
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/P3-Screenshot.png" alt="l33theme Screenshot with P1 Green" width="600">
