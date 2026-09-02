@@ -36,6 +36,9 @@ Adds a soft ambient sweep line that passes behind the scanline bars (see gif bel
 
 ## Style Settings Support
 
+> [!NOTE]
+> Style Settings plugin is required for CRT effects!
+
 - Phosphor Display Color: P1 Green Phosphor (Default), P3 Amber Phosphor
 - High-Contrast CRT Scanlines
 - Phosphor Dot-Matrix Grid (Shadow Mask)
