@@ -1,56 +1,129 @@
 # l33theme
 
-A dark-only Obsidian theme inspired by retro green-phosphor CRT monitors.
+A dark-only Obsidian theme inspired by vintage monochrome CRT displays, featuring multiple phosphor modes and configurable retro visual effects.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/P1-Screenshot.png" alt="l33theme Screenshot with P1 Green" width="600">
+  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/p1-green.png" alt="l33theme screenshot with P1 green phosphor" width="600">
 </p>
 
-## Key Features
+## Overview
 
-### P1 Phosphor Theme
+l33theme is a retro terminal-inspired Obsidian theme built around the look of monochrome CRT displays. It combines a dark console-like interface with configurable phosphor colors, subtle screen simulation, and optional experimental effects for users who want either a practical terminal look or a more exaggerated arcade-style aesthetic.
 
-Inspired by the standard green luminescence
+## Features
+
+- Dark-only CRT-inspired interface
+- Multiple phosphor display modes
+- Subtle raster, bloom, and tube shading effects
+- Optional experimental CRT effects
+- Style Settings support for live customization
+- Squared retro UI styling
+- Terminal-styled callouts, tags, and code blocks
+
+## Phosphor Display Modes
+
+### P1 (Green Phosphor)
+Inspired by the classic green monochrome terminal display.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/P1-Screenshot.png" alt="l33theme Screenshot with P1 Green" width="600">
+  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/p1-green.png" alt="l33theme screenshot with P1 green phosphor" width="600">
 </p>
 
-### P3 Phosphor Theme
-
-Inspired by the amber luminescence
+### P2 (Blue-Green Phosphor)
+Inspired by vintage instrumentation and oscilloscope-style displays.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/P3-Screenshot.png" alt="l33theme Screenshot with P1 Green" width="600">
+  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/p2-blue-green.png" alt="l33theme screenshot with P2 blue-green phosphor" width="600">
 </p>
 
-### Rolling Electron Beam
-
-Adds a soft ambient sweep line that passes behind the scanline bars (see gif below)
+### P3 (Amber Phosphor)
+Inspired by amber monochrome CRT displays.
 
 <p align="center">
-	<img width="600" height="338" alt="Example-Video" src="https://github.com/user-attachments/assets/7e0c7997-cafc-4a42-8101-dcd64ceef975" />
+  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/p3-amber.png" alt="l33theme screenshot with P3 amber phosphor" width="600">
 </p>
 
-<br />
+### P4 (White Phosphor)
+Inspired by white monochrome displays and black-and-white CRT imagery.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/p4-white.png" alt="l33theme screenshot with P4 white phosphor" width="600">
+</p>
+
+## CRT Effects
+
+### Core Effects
+These effects define the default CRT-inspired look:
+
+- CRT glass and edge vignette
+- Raster scanlines
+- Phosphor bloom
+- Retro console badge tags
+
+### Experimental Effects
+These effects are optional and intended for users who want a more stylized or exaggerated CRT look:
+
+- Phosphor surface texture
+- Rolling refresh band
+- CRT flicker
+- Glass reflection
 
 ## Style Settings Support
 
 > [!NOTE]
-> Style Settings plugin is required for CRT effects!
+> The theme works without the Style Settings plugin, but the plugin is recommended for easier customization.
 
-- Phosphor Display Color: P1 Green Phosphor (Default), P3 Amber Phosphor
-- High-Contrast CRT Scanlines
-- Phosphor Dot-Matrix Grid (Shadow Mask)
-- Soft Rolling Electron Beam
-- Phosphor Glow (Headers & Highlights Only)
-- Retro Console Badge Tags
+With the **Style Settings** plugin installed, the following options can be customized from the Obsidian interface:
 
-<br />
+### Display
+- Phosphor type
+  - P1 — Green
+  - P2 — Blue-Green
+  - P3 — Amber
+  - P4 — White
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kylecurtis/l33theme/refs/heads/master/screenshots/Style-Settings.png" alt="l33theme Screenshot with P1 Green" width="600">
-</p>
+### Core CRT Effects
+- CRT glass & edge vignette
+- Vignette intensity
+- Raster scanlines
+- Scanline intensity
+- Scanline spacing
+- Phosphor bloom
+- Bloom intensity
 
-> [!NOTE]  
-> The CRT visual effects work on popup windows like Style Settings as well (showcased in the screenshot above).
+### Experimental Effects
+- Phosphor surface texture
+- Surface texture intensity
+- Rolling refresh band
+- Refresh band intensity
+- Refresh band speed
+- CRT flicker
+- Flicker intensity
+- Glass reflection
+- Glass reflection intensity
+
+### Interface Styling
+- Retro console badge tags
+
+> [!NOTE]
+> CRT visual effects also apply to popup windows such as the Style Settings panel.
+
+## Design Goals
+
+l33theme aims to balance two ideas:
+
+1. **Practical monochrome terminal usability**
+   - readable body text
+   - restrained bloom
+   - dark, focused interface
+
+2. **Configurable retro experimentation**
+   - stronger scanlines
+   - exaggerated bloom
+   - more dramatic CRT-style effects for screenshots or arcade-inspired setups
+
+The default appearance is intended to feel like a believable monochrome CRT, while the available settings make it possible to push the look into a more stylized emulator or arcade aesthetic.
+
+## Recommended Plugin
+
+- [Style Settings](https://github.com/community-archive/obsidian-style-settings)
